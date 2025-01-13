@@ -38,7 +38,7 @@ def criar_banco_de_dados():
 
 # Função para salvar os dados no banco
 def salvar_dados(nome_imagem, numero_objeto, nome_objeto):
-    conn = sqlite3.connect("imagens.sqlite")
+    conn = sqlite3.connect("database/imagens.sqlite")
     cursor = conn.cursor()
     data_hora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     cursor.execute(
@@ -54,7 +54,7 @@ def salvar_dados(nome_imagem, numero_objeto, nome_objeto):
 
 # Função para listar os dados do banco
 def listar_dados():
-    conn = sqlite3.connect("imagens.sqlite")
+    conn = sqlite3.connect("database/imagens.sqlite")
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM objetos_detectados ORDER BY id")
     rows = cursor.fetchall()

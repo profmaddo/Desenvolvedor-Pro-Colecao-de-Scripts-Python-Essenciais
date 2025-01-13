@@ -41,4 +41,4 @@ def processamento():
 if __name__ == '__main__':
     print('Script para Remover Background de Imagens')
     processamento()
-    print(f'Processamento finalizado')
+    print(f'Processamento finalizado..')

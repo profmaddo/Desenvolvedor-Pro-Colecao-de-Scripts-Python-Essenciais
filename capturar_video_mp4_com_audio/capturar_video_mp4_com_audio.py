@@ -10,10 +10,12 @@ import wave
 import subprocess
 from time import sleep
 
+
 ## brew install portaudio
 ## pip install pyaudio
 ## pip install opencv-python
 ## pip install ffmpeg-python
+
 
 is_capturing = False  # Variável global para controlar a captura
 capture_thread = None

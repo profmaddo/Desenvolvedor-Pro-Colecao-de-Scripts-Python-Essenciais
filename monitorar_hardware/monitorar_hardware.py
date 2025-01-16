@@ -28,7 +28,8 @@ def get_cpu_info():
     try:
         cpu_info = {
             "fabricante": platform.processor(),
-            "velocidade_ghz": psutil.cpu_freq().current / 1000 if psutil.cpu_freq() else "N/A",
+            "velocidade_ghz": psutil.cpu_freq().current / 1000
+                                if psutil.cpu_freq() else "N/A",
             "cores_totais": psutil.cpu_count(logical=True),
             "cores_fisicos": psutil.cpu_count(logical=False),
             "percentual_uso": psutil.cpu_percent(interval=1)

@@ -33,8 +33,10 @@ def processamento(video_path):
         # Passo 1: Extrair áudio do vídeo
         print("Extraindo áudio do vídeo...")
         video = mp.VideoFileClip(video_path)
-        temp_audio_path = "temp_audio.wav"  # Salvar áudio temporariamente como WAV
-        video.audio.write_audiofile(temp_audio_path, codec="pcm_s16le")  # WAV para máxima qualidade
+        # Salvar áudio temporariamente como WAV
+        temp_audio_path = "temp_audio.wav"
+        # WAV para máxima qualidade
+        video.audio.write_audiofile(temp_audio_path, codec="pcm_s16le")
 
         # Passo 2: Carregar o áudio extraído
         print("Carregando áudio para processamento...")

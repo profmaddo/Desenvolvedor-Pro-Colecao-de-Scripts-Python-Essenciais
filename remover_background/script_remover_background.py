@@ -3,7 +3,7 @@ from tqdm import tqdm
 import time
 
 imagem_original = "imagens/leao-com-bg.jpg"
-imagem_processada = "imagens/leao-sim-bg.png"
+imagem_processada = "imagens/leao-sem-bg.png"
 
 '''
 Dica: Caso execute o script e ocorra um erro

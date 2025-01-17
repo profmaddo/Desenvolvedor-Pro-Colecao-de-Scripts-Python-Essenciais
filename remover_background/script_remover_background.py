@@ -17,28 +17,39 @@ abaixo para instalar a dependência 'onnxruntime'
 
 pip install onnxruntime
 '''
+
+
 def processamento():
     # Abrindo a imagem de entrada
     print(f'Nome da imagem original: {imagem_original}\n')
     print(f'Criando nova imagem sem background: {imagem_processada}')
 
-    # Simula etapas para demonstrar a barra de progresso
-    with open(imagem_original, 'rb') as input_file:
-        # Adiciona a barra de progresso
-        with tqdm(total=100, desc="Removendo Background", unit="%") as pbar:
-            # Removendo o fundo
-            time.sleep(0.5)  # Simula o início do processamento
-            output = remove(input_file.read())
-            pbar.update(50)  # Atualiza para 50% após leitura
+    # Adiciona a barra de progresso
+    with tqdm(total=100, desc="Removendo Background", unit="%", ncols=80) as pbar:
+        # Simula o início do processamento
+        time.sleep(0.5)
+        pbar.update(10)  # Atualiza para 10%
 
-            # Salvando a imagem resultante
-            with open(imagem_processada, 'wb') as output_file:
-                output_file.write(output)
-                time.sleep(0.5)  # Simula o tempo restante para salvar
-                pbar.update(50)  # Atualiza para 100%
+        # Lendo o arquivo original
+        with open(imagem_original, 'rb') as input_file:
+            input_data = input_file.read()
+            time.sleep(0.5)
+            pbar.update(20)  # Atualiza para 30%
+
+        # Removendo o fundo
+        output = remove(input_data)
+        time.sleep(0.5)
+        pbar.update(40)  # Atualiza para 70%
+
+        # Salvando a imagem resultante
+        with open(imagem_processada, 'wb') as output_file:
+            output_file.write(output)
+            time.sleep(0.5)
+            pbar.update(30)  # Atualiza para 100%
+
 
 # Ponto de entrada
 if __name__ == '__main__':
     print('Script para Remover Background de Imagens')
     processamento()
-    print(f'Processamento finalizado..')
+    print('Processamento finalizado..')
